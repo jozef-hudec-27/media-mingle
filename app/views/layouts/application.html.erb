@@ -11,6 +11,17 @@
   </head>
 
   <body>
+  <% unless notice.blank? %>
+        <div data-controller="toast" class="toast info-toast">
+            <p><%= notice %></p>
+        </div>
+    <% end %>
+    <% unless alert.blank? %>
+        <div data-controller="toast" class="toast error-toast">
+            <p><%= alert %></p>
+        </div>
+    <% end %>
+    
     <div id="root">
         <%= yield %>
     </div>
