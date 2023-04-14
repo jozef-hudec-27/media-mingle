@@ -1,0 +1,46 @@
+@keyframes slide-up {
+  from {
+    bottom: -100%;
+  }
+
+  to {
+    bottom: 30px;
+  }
+}
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 33vw;
+  animation: slide-up 1s ease-out;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  z-index: 10;
+}
+
+.error-toast {
+  background-color: rgb(229, 62, 62);
+
+  p {
+    color: white;
+  }
+}
+
+.info-toast {
+  background-color: rgb(49, 130, 206);
+
+  p {
+    color: white;
+  }
+}
+
+@media (max-width: 576px) {
+  .toast {
+    min-width: 66vw;
+  }
+}
