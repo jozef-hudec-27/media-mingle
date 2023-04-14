@@ -1,1 +1,23 @@
-// Entry point for your Sass build
+@use './utils.sass.scss';
+
+// RESET BROWSER STYLES
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: sans-serif;
+}
