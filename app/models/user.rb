@@ -6,4 +6,6 @@ class User < ApplicationRecord
          :lockable
 
   validates :username, presence: true, length: { maximum: 100 }
+
+  has_many :videos, dependent: :destroy
 end
