@@ -7,6 +7,7 @@ class Video < ApplicationRecord
   has_many :likes, as: :likeable, dependent: :destroy
   has_many :dislikes, as: :dislikeable, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :views, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 100 }
   validates :description, length: { maximum: 1000 }
