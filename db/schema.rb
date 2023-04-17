@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_17_060012) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_17_061556) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "commentable_type", null: false
+    t.bigint "commentable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "dislikes", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -60,6 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_060012) do
     t.index ["user_id"], name: "index_videos_on_user_id"
   end
 
+  add_foreign_key "comments", "users"
   add_foreign_key "dislikes", "users"
   add_foreign_key "likes", "users"
   add_foreign_key "videos", "users"
