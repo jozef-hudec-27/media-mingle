@@ -8,4 +8,7 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { maximum: 100 }
 
   has_many :videos, dependent: :destroy
+
+  has_many :likes, dependent: :destroy
+  has_many :liked_videos, through: :likes, source: :likeable, source_type: 'Video'
 end

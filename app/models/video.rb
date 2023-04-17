@@ -4,6 +4,9 @@ class Video < ApplicationRecord
   has_one_attached :video
   has_one_attached :thumbnail
 
+  has_many :likes, as: :likeable
+  has_many :dislikes, as: :dislikeable
+
   validates :title, presence: true, length: { maximum: 100 }
   validates :description, length: { maximum: 1000 }
 
