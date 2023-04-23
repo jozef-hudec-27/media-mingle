@@ -1,0 +1,19 @@
+@use './config.sass.scss' as *;
+
+.video-preview {
+  img.thumbnail {
+    border-radius: 12px;
+    aspect-ratio: 16 / 9;
+  }
+
+  img.avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .video-info {
+    * {
+      color: $font-color-light;
+    }
+  }
+}
