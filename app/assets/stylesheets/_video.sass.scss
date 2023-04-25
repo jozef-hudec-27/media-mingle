@@ -1,6 +1,13 @@
 @use './config.sass.scss' as *;
 
 .video-preview {
+  cursor: pointer;
+
+  .thumbnail-wrapper {
+    position: relative;
+    width: fit-content;
+  }
+
   img.thumbnail {
     border-radius: 12px;
     aspect-ratio: 16 / 9;
@@ -14,6 +21,27 @@
   .video-info {
     * {
       color: $font-color-light;
+    }
+  }
+
+  .video-duration-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: fit-content;
+    font-weight: 600;
+    position: absolute;
+    padding: 2px 4px;
+    right: 8px;
+    bottom: 12px;
+    border-radius: 4px;
+
+    * {
+      color: white;
+    }
+  }
+
+  .author {
+    &:hover {
+      color: $font-color;
     }
   }
 }
