@@ -55,16 +55,17 @@ $avatar-size: 36px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   row-gap: 40px;
+  column-gap: 4px;
   justify-items: center;
 }
 
-@media (max-width: 576px) {
+@media ($mq-small) {
   .home-video-feed {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 }
 
-@media (min-width: 3800px) {
+@media ($mq-4k) {
   .home-video-feed {
     grid-template-columns: repeat(auto-fit, minmax(720px, 1fr));
   }

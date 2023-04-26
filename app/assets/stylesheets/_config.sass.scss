@@ -1,2 +1,8 @@
+$bp-small: 576px;
+$bp-4k: 3800px;
+
+$mq-small: '(max-width: #{$bp-small})';
+$mq-4k: '(min-width: #{$bp-4k})';
+
 $font-color: #0f0f0f;
 $font-color-light: #606060;
