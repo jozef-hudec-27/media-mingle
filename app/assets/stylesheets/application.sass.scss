@@ -33,3 +33,9 @@ body {
     color: $font-color;
   }
 }
+
+@media (min-width: 3800px) {
+  body {
+    font-size: 2em;
+  }
+}

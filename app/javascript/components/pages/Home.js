@@ -24,11 +24,11 @@ export default function Home() {
       {videos.length === 0 ? (
         <p>No videos yet.</p>
       ) : (
-        videos.map((video) => {
-          return (
-            <VideoPreview key={video.id} video={video} />
-          )
-        })
+        <div className="home-video-feed">
+          {videos.map((video) => {
+            return <VideoPreview key={video.id} video={video} />
+          })}
+        </div>
       )}
     </Page>
   )

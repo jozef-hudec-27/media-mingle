@@ -1,7 +1,11 @@
 @use './config.sass.scss' as *;
 
+$thumnail-width: 360px;
+$avatar-size: 36px;
+
 .video-preview {
   cursor: pointer;
+  width: fit-content;
 
   .thumbnail-wrapper {
     position: relative;
@@ -11,6 +15,7 @@
   img.thumbnail {
     border-radius: 12px;
     aspect-ratio: 16 / 9;
+    width: $thumnail-width;
   }
 
   img.avatar {
@@ -42,6 +47,36 @@
   .author {
     &:hover {
       color: $font-color;
+    }
+  }
+}
+
+.home-video-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  row-gap: 40px;
+  justify-items: center;
+}
+
+@media (max-width: 576px) {
+  .home-video-feed {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+@media (min-width: 3800px) {
+  .home-video-feed {
+    grid-template-columns: repeat(auto-fit, minmax(720px, 1fr));
+  }
+
+  .video-preview {
+    img.thumbnail {
+      width: calc($thumnail-width * 2);
+    }
+
+    img.avatar {
+      width: calc($avatar-size * 2);
+      height: calc($avatar-size * 2);
     }
   }
 }
