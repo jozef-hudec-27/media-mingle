@@ -12,8 +12,8 @@ class Video < ApplicationRecord
   validates :title, presence: true, length: { maximum: 100 }
   validates :description, length: { maximum: 1000 }
 
-  validates :thumbnail, attached: true, size: { less_than: 5.megabytes, message: 'must be less than 5MB' }, content_type: ['image/jpeg', 'image/png'],
-                        dimension: { width: { min: 640 }, height: { min: 360 }, message: 'must have a width of at least 640px and height 360px' },
+  validates :thumbnail, attached: true, size: { less_than: 5.megabytes, message: 'must be less than 5 MB' }, content_type: ['image/jpeg', 'image/png'],
+                        dimension: { width: { min: 640 }, height: { min: 360 }, message: 'must have a width of at least 640 px and height 360 px' },
                         aspect_ratio: :is_16_9
   validates :video, attached: true, size: { less_than: 128.megabytes, message: 'must be less than 128MB' },
                     content_type: 'video/mp4'

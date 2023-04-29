@@ -25,8 +25,8 @@ class User < ApplicationRecord
   has_many :channel_subscriptions, foreign_key: :channel_id, class_name: 'Subscription', dependent: :destroy
   has_many :subscribers, through: :channel_subscriptions, source: :subscriber
 
-  validates :avatar, attached: true, size: { less_than: 5.megabytes, message: 'must be less than 5MB' }, content_type: ['image/jpeg', 'image/png'],
-                     dimension: { width: { min: 98, max: 1200 }, height: { min: 98, max: 1200 }, message: 'must be between 98 and 1200 px' },
+  validates :avatar, attached: true, size: { less_than: 5.megabytes, message: 'must be less than 5 MB' }, content_type: ['image/jpeg', 'image/png'],
+                     dimension: { width: { min: 98, max: 1200 }, height: { min: 98, max: 1200 }, message: 'must be between 98 and 1200 pixels' },
                      aspect_ratio: :square
 
   after_create :attach_default_avatar
