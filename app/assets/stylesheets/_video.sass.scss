@@ -21,6 +21,7 @@ $avatar-size: 36px;
   img.avatar {
     width: 36px;
     height: 36px;
+    aspect-ratio: 1 / 1;
   }
 
   .video-info {

@@ -2,7 +2,6 @@ import useToast from './hooks/useToast'
 
 export async function request(url, method = 'GET', options = {}, successCb = function () {}, errorCb = function () {}) {
   const response = await fetch(url, { method: method, ...options })
-  console.log(response)
 
   if (response.ok) {
     const data = await response.json()

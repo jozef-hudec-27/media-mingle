@@ -78,3 +78,5 @@ end
 gem 'devise'
 
 gem 'pg'
+
+gem 'active_storage_validations'

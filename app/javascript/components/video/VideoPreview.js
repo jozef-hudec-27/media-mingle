@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { timeElapsedSince } from '../../utils'
 
 export default function VideoPreview({ video }) {
+  const videoLinkRef = useRef()
+
   return (
     <div
       className="video-preview flexbox flex-column gap-12"
       onClick={(e) => {
         if (e.target.tagName !== 'A') {
           // If we're not clicking a link
-          console.log('DENIS')
+          videoLinkRef.current?.click()
         }
       }}
     >
@@ -22,12 +24,12 @@ export default function VideoPreview({ video }) {
 
       <div className="flexbox gap-12">
         <a href="">
-          <img className="avatar rounded" src={video.thumbnail_url} alt="Author profile picture" />
+          <img className="avatar rounded" src={video.user.avatar} alt="Author profile picture" />
         </a>
 
         <div className="flexbox flex-column">
           <h3 className="mb-4">
-            <a href="">{video.title}</a>
+            <a href="" ref={videoLinkRef}>{video.title}</a>
           </h3>
 
           <div className="video-info">
@@ -36,7 +38,8 @@ export default function VideoPreview({ video }) {
             </a>
 
             <p>
-              {video.view_count} {video.view_count === 1 ? 'view' : 'views'} • {timeElapsedSince(new Date(video.created_at))}
+              {video.view_count} {video.view_count === 1 ? 'view' : 'views'} •{' '}
+              {timeElapsedSince(new Date(video.created_at))}
             </p>
           </div>
         </div>

@@ -9,7 +9,7 @@ class Api::VideosController < ApplicationController
                             thumbnail_url: url_for(video.thumbnail),
                             view_count: video.views.count,
                             duration: format_video_duration(video_duration(video)),
-                            user: video.user
+                            user: video.user.as_json.merge({ avatar: url_for(video.user.avatar) })
                           })
     end
 

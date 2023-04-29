@@ -12,34 +12,15 @@ class Video < ApplicationRecord
   validates :title, presence: true, length: { maximum: 100 }
   validates :description, length: { maximum: 1000 }
 
-  validate :acceptable_thumbnail, :acceptable_video
+  validates :thumbnail, attached: true, size: { less_than: 5.megabytes, message: 'must be less than 5MB' }, content_type: ['image/jpeg', 'image/png'],
+                        dimension: { width: { min: 640 }, height: { min: 360 }, message: 'must have a width of at least 640px and height 360px' },
+                        aspect_ratio: :is_16_9
+  validates :video, attached: true, size: { less_than: 128.megabytes, message: 'must be less than 128MB' },
+                    content_type: 'video/mp4'
 
   after_create :attach_default_thumbnail
 
   private
-
-  def acceptable_attachment(attachment, max_size, acceptable_types, required: false)
-    if required
-      return errors.add(attachment.name, 'must be present') unless attachment.attached?
-    else
-      return unless attachment.attached?
-    end
-
-    errors.add attachment.name, 'is too big' unless attachment.byte_size <= max_size
-
-    unless acceptable_types.include? attachment.content_type
-      errors.add attachment.name,
-                 "must be #{acceptable_types.join(' or ')}"
-    end
-  end
-
-  def acceptable_thumbnail
-    acceptable_attachment thumbnail, 5.megabyte, ['image/jpeg', 'image/png']
-  end
-
-  def acceptable_video
-    acceptable_attachment video, 128.megabyte, ['video/mp4'], required: true
-  end
 
   def attach_default_thumbnail
     return if thumbnail.attached?
