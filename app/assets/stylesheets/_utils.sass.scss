@@ -48,6 +48,7 @@
   border: none;
   outline: none;
   background: transparent;
+  padding: 0;
 }
 
 // PADDING
@@ -121,4 +122,8 @@
 
 .rounded {
   border-radius: 999px;
+}
+
+.btn {
+  cursor: pointer;
 }

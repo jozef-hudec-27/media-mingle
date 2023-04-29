@@ -24,6 +24,11 @@ a {
   text-decoration: none;
 }
 
+input,
+button {
+  @extend %reset-appearance;
+}
+
 body {
   margin: 0;
   height: 100vh;

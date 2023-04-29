@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import useToast from '../../hooks/useToast'
+import useToast from '../../../hooks/useToast'
+import Logo from '../Logo'
+import Searchbar from './Searchbar'
 
 export default function Navbar() {
   return (
     <nav>
-      <h1>
-        <Link to="/">MediaMingle</Link>
-      </h1>
+      <Logo />
+
+      <Searchbar />
 
       <ul className="flexbox gap-16">
         <li className="nav-link">

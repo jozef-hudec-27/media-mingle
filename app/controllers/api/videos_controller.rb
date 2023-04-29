@@ -2,7 +2,7 @@ require 'net/http'
 
 class Api::VideosController < ApplicationController
   def index
-    videos = Video.all
+    videos = Video.where id: 1
     videos = videos.map do |video|
       video.as_json.merge({
                             video_url: url_for(video.video),
