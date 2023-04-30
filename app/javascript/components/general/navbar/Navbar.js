@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import useToast from '../../../hooks/useToast'
 import Logo from '../Logo'
+import AvatarBtn from './AvatarBtn'
 import Searchbar from './Searchbar'
 import SignInBtn from './SignInBtn'
 
@@ -19,7 +18,7 @@ export default function Navbar({ userInfo }) {
       ) : Object.keys(userInfo).length === 0 ? (
         <SignInBtn />
       ) : (
-        'User'
+        <AvatarBtn userInfo={userInfo} />
       )}
     </nav>
   )

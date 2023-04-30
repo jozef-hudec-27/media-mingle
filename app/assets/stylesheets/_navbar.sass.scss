@@ -1,12 +1,15 @@
 @use './utils.sass.scss';
+@use './config.sass.scss' as *;
+
+$nav-height: 56px;
+$avatar-btn-size: 32px;
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
-  height: 56px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+  height: $nav-height;
   position: sticky;
   top: 0;
   z-index: 3;
@@ -64,6 +67,27 @@ nav {
       background-color: darken(#def1ff, 8%);
     }
   }
+
+  .avatar-btn {
+    img {
+      box-sizing: border-box;
+      width: $avatar-btn-size;
+      height: $avatar-btn-size;
+    }
+
+    &:focus-within {
+      .dropdown-btn img {
+        border: 1px solid blue;
+      }
+    }
+
+    .avatar-btn-dropdown {
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+  }
 }
 
 .media-mingle-logo {
@@ -72,6 +96,17 @@ nav {
 
     path {
       color: red;
+    }
+  }
+}
+
+@media ($mq-4k) {
+  nav {
+    height: calc($nav-height * 2);
+
+    .avatar-btn img {
+      width: calc($avatar-btn-size * 2);
+      height: calc($avatar-btn-size * 2);
     }
   }
 }
