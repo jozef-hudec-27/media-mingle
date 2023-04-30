@@ -27,7 +27,7 @@ export default function Dropdown({ button, links, children }) {
               key={i}
             >
               <Link to={link.url}>
-                <div className="flexbox gap-8">
+                <div className="flexbox gap-8 flex-align-center">
                   {link.icon} {link.text}
                 </div>
               </Link>

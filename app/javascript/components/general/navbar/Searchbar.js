@@ -1,6 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { Search } from 'react-bootstrap-icons'
 
 export default function Searchbar() {
   return (
@@ -8,7 +7,7 @@ export default function Searchbar() {
       <input type="text" placeholder="Search" />
 
       <button className="search-btn btn">
-        <FontAwesomeIcon icon={faSearch} />
+        <Search />
       </button>
     </div>
   )

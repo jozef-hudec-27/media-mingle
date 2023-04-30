@@ -1,7 +1,6 @@
 import React from 'react'
 import Dropdown from '../Dropdown'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserCircle, faRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import { Person, BoxArrowRight } from 'react-bootstrap-icons'
 
 export default function AvatarBtn({ userInfo }) {
   return (
@@ -13,8 +12,8 @@ export default function AvatarBtn({ userInfo }) {
           </button>
         }
         links={[
-          { text: 'Sign out', icon: <FontAwesomeIcon icon={faRightToBracket} />, url: '/' },
-          { text: 'Your channel', icon: <FontAwesomeIcon icon={faUserCircle} />, url: '/' },
+          { text: 'Your channel', icon: <Person />, url: '/' },
+          { text: 'Sign out', icon: <BoxArrowRight />, url: '/' },
         ]}
       >
         <div className="avatar-btn-dropdown flexbox gap-16">
