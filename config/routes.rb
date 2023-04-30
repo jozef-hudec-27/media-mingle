@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :videos, only: [:index]
+    get '/me', to: 'users#me'
   end
 
   root 'react#index'

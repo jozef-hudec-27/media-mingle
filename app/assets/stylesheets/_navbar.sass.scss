@@ -12,6 +12,58 @@ nav {
   z-index: 3;
   background-color: white;
   padding: 0 16px;
+
+  .video-searchbar {
+    input {
+      border: 1px solid #ccc;
+      box-shadow: inset 0 1px 2px #eee;
+      border-radius: 40px 0 0 40px;
+      padding: 8px 4px 8px 16px;
+      color: #111111;
+      caret-color: #0f0f0f;
+      border-right: none;
+
+      &:focus {
+        border: 1px solid #1c62b9;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    button.search-btn {
+      padding: 1px 16px;
+      background-color: #f8f8f8;
+      border: 1px solid #d3d3d3;
+      border-radius: 0 40px 40px 0;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      &:focus {
+        background-color: #e9e9e9;
+      }
+    }
+  }
+
+  .sign-in-btn {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 8px 15px;
+    color: #065fd4;
+    font-weight: 600;
+
+    * {
+      color: #065fd4;
+    }
+
+    &:hover:not(:active) {
+      background-color: #def1ff;
+      border: none;
+    }
+
+    &:active {
+      background-color: darken(#def1ff, 8%);
+    }
+  }
 }
 
 .media-mingle-logo {
@@ -20,38 +72,6 @@ nav {
 
     path {
       color: red;
-    }
-  }
-}
-
-.video-searchbar {
-  input {
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 2px #eee;
-    border-radius: 40px 0 0 40px;
-    padding: 8px 4px 8px 16px;
-    color: #111111;
-    caret-color: #0f0f0f;
-    border-right: none;
-
-    &:focus {
-      border: 1px solid #1c62b9;
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
-    }
-  }
-
-  button.search-btn {
-    padding: 1px 16px;
-    background-color: #f8f8f8;
-    border: 1px solid #d3d3d3;
-    border-radius: 0 40px 40px 0;
-
-    &:hover {
-      background-color: #f0f0f0;
-    }
-
-    &:focus {
-      background-color: #e9e9e9;
     }
   }
 }

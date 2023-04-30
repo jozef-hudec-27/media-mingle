@@ -3,40 +3,24 @@ import { Link } from 'react-router-dom'
 import useToast from '../../../hooks/useToast'
 import Logo from '../Logo'
 import Searchbar from './Searchbar'
+import SignInBtn from './SignInBtn'
 
-export default function Navbar() {
+export default function Navbar({ userInfo }) {
   return (
     <nav>
       <Logo />
 
       <Searchbar />
 
-      <ul className="flexbox gap-16">
-        <li className="nav-link">
-          <a
-            href=""
-            onClick={(e) => {
-              e.preventDefault()
-
-              fetch('/users/sign_out', {
-                method: 'DELETE',
-                headers: {
-                  'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                },
-              })
-                .then((response) => {
-                  if (response.ok) return (window.location.href = '')
-                  throw new Error('')
-                })
-                .catch((_) => {
-                  useToast('Unable to log out.', 'error')
-                })
-            }}
-          >
-            Logout
-          </a>
-        </li>
-      </ul>
+      {userInfo === undefined ? (
+        'Loading...'
+      ) : userInfo === null ? (
+        ''
+      ) : Object.keys(userInfo).length === 0 ? (
+        <SignInBtn />
+      ) : (
+        'User'
+      )}
     </nav>
   )
 }
