@@ -17,7 +17,11 @@ nav {
   padding: 0 16px;
 
   .video-searchbar {
+    width: 33%;
+    height: 75%;
+
     input {
+      width: 100%;
       border: 1px solid #ccc;
       box-shadow: inset 0 1px 2px #eee;
       border-radius: 40px 0 0 40px;
@@ -82,10 +86,32 @@ nav {
     }
 
     .avatar-btn-dropdown {
-        img {
-            width: 40px;
-            height: 40px;
-        }
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  .notifications-btn {
+    .dropdown-btn svg {
+      border-radius: 24px;
+    }
+
+    .dropdown-btn svg:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &:focus-within {
+      .dropdown-btn svg {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .notifications-btn-dropdown {
+      * {
+        color: #606060;
+      }
     }
   }
 }
@@ -96,6 +122,29 @@ nav {
 
     path {
       color: red;
+    }
+  }
+}
+
+@media ($mq-small) {
+  nav {
+    padding-top: 8px;
+    flex-direction: column;
+    height: unset;
+    gap: 8px;
+
+    .video-searchbar {
+      width: 100%;
+
+      input {
+        width: 100%;
+      }
+    }
+
+    .navbar-btns {
+      position: absolute;
+      right: 16px;
+      gap: 6px;
     }
   }
 }

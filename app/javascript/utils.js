@@ -4,8 +4,14 @@ export async function request(url, method = 'GET', options = {}, successCb = fun
   const response = await fetch(url, { method: method, ...options })
 
   if (response.ok) {
-    const data = await response.json()
-    successCb(data)
+    let data = null
+
+    try {
+      data = await response.json()
+    } catch {
+    } finally {
+      successCb(data)
+    }
   } else {
     try {
       // json of the response is available

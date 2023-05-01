@@ -22,11 +22,8 @@ export default function Dropdown({ button, links, children }) {
 
         {links?.map((link, i) => {
           return (
-            <div
-              className={`dropdown-link px-16 pt-16 pb-16`}
-              key={i}
-            >
-              <Link to={link.url}>
+            <div className={`dropdown-link px-16 pt-16 pb-16`} key={i}>
+              <Link to={link.url} onClick={link.onClick || function () {}}>
                 <div className="flexbox gap-8 flex-align-center">
                   {link.icon} {link.text}
                 </div>

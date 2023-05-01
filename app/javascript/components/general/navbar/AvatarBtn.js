@@ -1,6 +1,8 @@
 import React from 'react'
 import Dropdown from '../Dropdown'
 import { Person, BoxArrowRight } from 'react-bootstrap-icons'
+import useToast from '../../../hooks/useToast'
+import { request } from '../../../utils'
 
 export default function AvatarBtn({ userInfo }) {
   return (
@@ -13,7 +15,26 @@ export default function AvatarBtn({ userInfo }) {
         }
         links={[
           { text: 'Your channel', icon: <Person />, url: '/' },
-          { text: 'Sign out', icon: <BoxArrowRight />, url: '/' },
+          {
+            text: 'Sign out',
+            icon: <BoxArrowRight />,
+            url: '/',
+            onClick(e) {
+              e.preventDefault()
+
+              request(
+                '/users/sign_out',
+                'DELETE',
+                {
+                  headers: {
+                    'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                  },
+                },
+                () => (window.location.href = ''),
+                (_) => useToast('Unable to log out.', 'error')
+              )
+            },
+          },
         ]}
       >
         <div className="avatar-btn-dropdown flexbox gap-16">

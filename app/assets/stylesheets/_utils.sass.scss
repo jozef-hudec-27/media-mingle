@@ -4,7 +4,7 @@
   display: flex;
 }
 
-@for $i from 1 through 20 {
+@for $i from 1 through 32 {
   .gap-#{$i} {
     gap: #{$i}px;
   }
