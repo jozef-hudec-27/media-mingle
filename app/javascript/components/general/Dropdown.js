@@ -1,37 +1,37 @@
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Dropdown({ button, links, children }) {
-  const dropdownBodyRef = useRef()
-
+export default function Dropdown({ name, button, links, isVisible, onClick, children }) {
   return (
     <div className="dropdown">
       <div
         className="dropdown-btn"
         onClick={() => {
-          dropdownBodyRef.current?.classList.toggle('hidden')
+          onClick(name)
         }}
       >
         {button}
       </div>
 
-      <div className="dropdown-body hidden" ref={dropdownBodyRef}>
-        {children && <div className="p-16">{children}</div>}
+      {isVisible(name) && (
+        <div className="dropdown-body">
+          {children && <div className="p-16">{children}</div>}
 
-        {children && links?.length && <hr></hr>}
+          {children && links?.length && <hr></hr>}
 
-        {links?.map((link, i) => {
-          return (
-            <div className={`dropdown-link px-16 pt-16 pb-16`} key={i}>
-              <Link to={link.url} onClick={link.onClick || function () {}}>
-                <div className="flexbox gap-8 flex-align-center">
-                  {link.icon} {link.text}
-                </div>
-              </Link>
-            </div>
-          )
-        })}
-      </div>
+          {links?.map((link, i) => {
+            return (
+              <div className={`dropdown-link px-16 pt-16 pb-16`} key={i}>
+                <Link to={link.url} onClick={link.onClick || function () {}}>
+                  <div className="flexbox gap-8 flex-align-center">
+                    {link.icon} {link.text}
+                  </div>
+                </Link>
+              </div>
+            )
+          })}
+        </div>
+      )}
     </div>
   )
 }

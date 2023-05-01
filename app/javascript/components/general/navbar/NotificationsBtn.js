@@ -2,15 +2,18 @@ import React from 'react'
 import { Bell } from 'react-bootstrap-icons'
 import Dropdown from '../Dropdown'
 
-export default function NotificationsBtn() {
+export default function NotificationsBtn({ handleDropdownBtnClick, isDropdownVisible }) {
   return (
     <div className="notifications-btn">
       <Dropdown
+        name="navbar-notifications"
         button={
           <button className="btn" aria-label="Notifications">
             <Bell className="p-8" aria-hidden="true" size={24} />
           </button>
         }
+        isVisible={isDropdownVisible}
+        onClick={handleDropdownBtnClick}
       >
         <div className="notifications-btn-dropdown">
           <div className="flexbox flex-center">

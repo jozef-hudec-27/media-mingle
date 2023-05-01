@@ -4,10 +4,11 @@ import { Person, BoxArrowRight } from 'react-bootstrap-icons'
 import useToast from '../../../hooks/useToast'
 import { request } from '../../../utils'
 
-export default function AvatarBtn({ userInfo }) {
+export default function AvatarBtn({ userInfo, handleDropdownBtnClick, isDropdownVisible }) {
   return (
     <div className="avatar-btn">
       <Dropdown
+        name="navbar-avatar"
         button={
           <button className="btn">
             <img className="rounded" src={userInfo.avatar_url} alt="User PFP" />
@@ -36,6 +37,8 @@ export default function AvatarBtn({ userInfo }) {
             },
           },
         ]}
+        isVisible={isDropdownVisible}
+        onClick={handleDropdownBtnClick}
       >
         <div className="avatar-btn-dropdown flexbox gap-16">
           <img className="rounded" src={userInfo.avatar_url} alt="User PFP" />
