@@ -5,7 +5,7 @@ import NotificationsBtn from './NotificationsBtn'
 import Searchbar from './Searchbar'
 import SignInBtn from './SignInBtn'
 
-export default function Navbar({ userInfo, handleDropdownBtnClick, isDropdownVisible }) {
+export default function Navbar({ userInfo }) {
   return (
     <nav>
       <Logo />
@@ -20,12 +20,8 @@ export default function Navbar({ userInfo, handleDropdownBtnClick, isDropdownVis
         <SignInBtn />
       ) : (
         <div className="navbar-btns flexbox flex-align-center gap-12">
-          <NotificationsBtn handleDropdownBtnClick={handleDropdownBtnClick} isDropdownVisible={isDropdownVisible} />
-          <AvatarBtn
-            userInfo={userInfo}
-            handleDropdownBtnClick={handleDropdownBtnClick}
-            isDropdownVisible={isDropdownVisible}
-          />
+          <NotificationsBtn />
+          <AvatarBtn userInfo={userInfo} />
         </div>
       )}
     </nav>

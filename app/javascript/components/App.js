@@ -4,6 +4,7 @@ import { request } from '../utils'
 import Navbar from './general/navbar/Navbar'
 import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
+import { DropdownContext } from '../contexts/DropdownContext'
 
 export default function App() {
   const [userInfo, setUserInfo] = useState(undefined)
@@ -23,6 +24,7 @@ export default function App() {
   }
 
   useEffect(() => {
+    // Returns true if element is not inside a dropdown / isn't a dropdown
     const isNotDropdown = (element) => {
       if (element === null) return true
 
@@ -56,18 +58,16 @@ export default function App() {
   }, [])
 
   return (
-    <Router>
-      <Navbar
-        userInfo={userInfo}
-        handleDropdownBtnClick={handleDropdownBtnClick}
-        isDropdownVisible={isDropdownVisible}
-      />
+    <DropdownContext.Provider value={{ handleDropdownBtnClick, isDropdownVisible }}>
+      <Router>
+        <Navbar userInfo={userInfo} />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </Router>
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </Router>
+    </DropdownContext.Provider>
   )
 }

@@ -1,19 +1,22 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { DropdownContext } from '../../contexts/DropdownContext'
 
-export default function Dropdown({ name, button, links, isVisible, onClick, children }) {
+export default function Dropdown({ name, button, links, children }) {
+  const { handleDropdownBtnClick, isDropdownVisible } = useContext(DropdownContext)
+
   return (
     <div className="dropdown">
       <div
         className="dropdown-btn"
         onClick={() => {
-          onClick(name)
+          handleDropdownBtnClick(name)
         }}
       >
         {button}
       </div>
 
-      {isVisible(name) && (
+      {isDropdownVisible(name) && (
         <div className="dropdown-body">
           {children && <div className="p-16">{children}</div>}
 
