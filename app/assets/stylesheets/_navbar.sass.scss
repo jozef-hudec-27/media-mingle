@@ -94,19 +94,19 @@ nav {
   }
 
   .notifications-btn {
-    .dropdown-btn svg {
-      border-radius: 24px;
-    }
+    // .dropdown-btn svg {
+    //   border-radius: 24px;
+    // }
 
-    .dropdown-btn svg:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-    }
+    // .dropdown-btn svg:hover {
+    //   background-color: rgba(0, 0, 0, 0.1);
+    // }
 
-    &:focus-within {
-      .dropdown-btn svg {
-        background-color: rgba(0, 0, 0, 0.2);
-      }
-    }
+    // &:focus-within {
+    //   .dropdown-btn svg {
+    //     background-color: rgba(0, 0, 0, 0.2);
+    //   }
+    // }
 
     .notifications-btn-dropdown {
       * {
@@ -131,7 +131,8 @@ nav {
     padding-top: 8px;
     flex-direction: column;
     height: unset;
-    gap: 8px;
+    gap: 12px;
+    align-items: flex-start;
 
     .video-searchbar {
       width: 100%;

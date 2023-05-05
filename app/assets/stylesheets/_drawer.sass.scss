@@ -1,0 +1,49 @@
+@use './config.sass.scss' as *;
+
+.drawer {
+  .drawer-body {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: white;
+    height: 100vh;
+    width: 25vw;
+    z-index: 3;
+    animation: slidein 0.3s;
+  }
+  @keyframes slidein {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .drawer-overlay {
+    z-index: 2;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadein 0.3s;
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@media ($mq-small) {
+  .drawer .drawer-body {
+    width: 75vw;
+  }
+}

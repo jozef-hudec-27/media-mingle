@@ -4,11 +4,15 @@ import AvatarBtn from './AvatarBtn'
 import NotificationsBtn from './NotificationsBtn'
 import Searchbar from './Searchbar'
 import SignInBtn from './SignInBtn'
+import NavDrawer from './NavDrawer'
 
 export default function Navbar({ userInfo }) {
   return (
     <nav>
-      <Logo />
+      <div className="flexbox flex-align-center gap-20">
+        <NavDrawer />
+        <Logo />
+      </div>
 
       <Searchbar />
 

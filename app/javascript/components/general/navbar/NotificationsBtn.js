@@ -7,7 +7,7 @@ export default function NotificationsBtn() {
   const { isDropdownVisible } = useContext(DropdownContext)
 
   return (
-    <div className="notifications-btn">
+    <div className="notifications-btn btn-hover-grey-circle">
       <Dropdown
         name="navbar-notifications"
         button={
