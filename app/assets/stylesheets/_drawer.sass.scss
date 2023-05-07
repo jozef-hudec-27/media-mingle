@@ -40,6 +40,18 @@
       opacity: 1;
     }
   }
+
+  .drawer-link {
+    border-radius: 10px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    &:focus-within {
+      background-color: #d7d7d7;
+    }
+  }
 }
 
 @media ($mq-small) {

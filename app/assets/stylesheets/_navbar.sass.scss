@@ -57,6 +57,7 @@ nav {
     padding: 8px 15px;
     color: #065fd4;
     font-weight: 600;
+    align-self: center;
 
     * {
       color: #065fd4;
@@ -94,20 +95,6 @@ nav {
   }
 
   .notifications-btn {
-    // .dropdown-btn svg {
-    //   border-radius: 24px;
-    // }
-
-    // .dropdown-btn svg:hover {
-    //   background-color: rgba(0, 0, 0, 0.1);
-    // }
-
-    // &:focus-within {
-    //   .dropdown-btn svg {
-    //     background-color: rgba(0, 0, 0, 0.2);
-    //   }
-    // }
-
     .notifications-btn-dropdown {
       * {
         color: #606060;

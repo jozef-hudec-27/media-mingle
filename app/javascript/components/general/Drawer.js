@@ -41,8 +41,8 @@ export default function Drawer({ button, links, children }) {
 
       {show && (
         <div className="drawer-body-wrapper" ref={drawerBodyWrapperRef}>
-          <div className="drawer-body" ref={drawerBodyRef}>
-            {children && <div className="p-12">{children}</div>}
+          <div className="drawer-body px-12" ref={drawerBodyRef}>
+            {children && <div className="p-12 mb-6">{children}</div>}
 
             {links?.map((link, i) => {
               return (
