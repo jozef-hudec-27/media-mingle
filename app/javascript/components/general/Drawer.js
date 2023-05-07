@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import useFocusTrap from '../../hooks/useFocusTrap'
+import Divider from './divider'
 
 export default function Drawer({ button, links, children }) {
   const [show, setShow] = useState(false)
@@ -45,10 +46,12 @@ export default function Drawer({ button, links, children }) {
             {children && <div className="p-12 mb-6">{children}</div>}
 
             {links?.map((link, i) => {
+              if (link.divider) return <Divider marginY={12} key={i} />
+
               return (
                 <div className="drawer-link px-12 pt-12 pb-12" key={i}>
                   <Link to={link.url} onClick={link.onClick || function () {}}>
-                    <div className="flexbox gap-8 flex-align-center">
+                    <div className="flexbox gap-16 flex-align-center">
                       {link.icon} {link.text}
                     </div>
                   </Link>

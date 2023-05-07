@@ -17,6 +17,7 @@ export default function NavDrawer() {
         links={[
           { icon: <HouseDoor />, text: 'Home', url: '/' },
           { icon: <PlayCircle />, text: 'Subscriptions', url: '/' },
+          { divider: true },
           { icon: <Book />, text: 'Library', url: '/' },
           { icon: <ClockHistory />, text: 'History', url: '/' },
           { icon: <PlayBtn />, text: 'Your videos', url: '/' },

@@ -1,6 +1,6 @@
 import React from 'react'
 import Dropdown from '../Dropdown'
-import { Person, BoxArrowRight } from 'react-bootstrap-icons'
+import { Person, BoxArrowRight, Upload } from 'react-bootstrap-icons'
 import useToast from '../../../hooks/useToast'
 import { request } from '../../../utils'
 
@@ -16,6 +16,8 @@ export default function AvatarBtn({ userInfo }) {
         }
         links={[
           { text: 'Your channel', icon: <Person />, url: '/' },
+          { text: 'Upload video', icon: <Upload />, url: '/' },
+          { divider: true },
           {
             text: 'Sign out',
             icon: <BoxArrowRight />,

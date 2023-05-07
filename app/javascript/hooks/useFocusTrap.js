@@ -4,9 +4,11 @@ export default function useFocusTrap(ref, isActive) {
   useEffect(() => {
     if (!isActive) return
 
-    const focusableElements = Array.from(ref.current.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    ))
+    document.querySelector('html').style.overflow = 'hidden'
+
+    const focusableElements = Array.from(
+      ref.current.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')
+    )
     const firstFocusableElement = focusableElements[0]
     const lastFocusableElement = focusableElements[focusableElements.length - 1]
 
@@ -32,6 +34,7 @@ export default function useFocusTrap(ref, isActive) {
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
+      document.querySelector('html').style.overflow = 'auto'
     }
   }, [ref, isActive])
 }

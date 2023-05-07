@@ -116,6 +116,7 @@ nav {
 @media ($mq-small) {
   nav {
     padding-top: 8px;
+    padding-bottom: 8px;
     flex-direction: column;
     height: unset;
     gap: 12px;

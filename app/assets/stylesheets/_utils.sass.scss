@@ -95,6 +95,12 @@
   .mb-#{$i} {
     margin-bottom: #{$i}px;
   }
+  .mx-#{$i} {
+    margin: 0 #{$i}px;
+  }
+  .my-#{$i} {
+    margin: #{$i}px 0;
+  }
 }
 
 .ml-auto {
@@ -153,4 +159,10 @@
 
 .hidden {
   display: none;
+}
+
+hr.divider {
+  background-color: #e5e5e5;
+  height: 1px;
+  border: none;
 }
