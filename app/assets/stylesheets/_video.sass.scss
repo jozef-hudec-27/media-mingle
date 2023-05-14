@@ -60,9 +60,19 @@ $avatar-size: 36px;
   justify-items: center;
 }
 
+// VIDEO PAGE
+
+.video video {
+  width: 64vw;
+}
+
 @media ($mq-small) {
   .home-video-feed {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  .video video {
+    width: 80vw;
   }
 }
 

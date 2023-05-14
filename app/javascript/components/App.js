@@ -5,6 +5,7 @@ import Navbar from './general/navbar/Navbar'
 import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
 import { DropdownContext } from '../contexts/DropdownContext'
+import Video from './pages/Video'
 
 export default function App() {
   const [userInfo, setUserInfo] = useState(undefined)
@@ -64,6 +65,8 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+
+          <Route path="/videos/:id" element={<Video />} />
 
           <Route path="*" element={<PageNotFound />} />
         </Routes>

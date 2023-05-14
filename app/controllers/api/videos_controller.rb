@@ -5,16 +5,15 @@ class Api::VideosController < ApplicationController
     # videos = Video.where id: 1
     videos = Video.all
     videos = videos.map do |video|
-      video.as_json.merge({
-                            video_url: url_for(video.video),
-                            thumbnail_url: url_for(video.thumbnail),
-                            view_count: video.views.count,
-                            duration: format_video_duration(video_duration(video)),
-                            user: video.user.as_json.merge({ avatar: url_for(video.user.avatar) })
-                          })
+      video.as_json.merge(additional_video_info(video))
     end
 
     render json: videos
+  end
+
+  def show
+    video = Video.find_by id: params[:id]
+    render json: video.as_json.merge(additional_video_info(video))
   end
 
   private
@@ -34,5 +33,15 @@ class Api::VideosController < ApplicationController
     else
       "#{minutes.to_s.rjust(2, '0')}:#{seconds.to_s.rjust(2, '0')}"
     end
+  end
+
+  def additional_video_info(video)
+    {
+      video_url: url_for(video.video),
+      thumbnail_url: url_for(video.thumbnail),
+      view_count: video.views.count,
+      duration: format_video_duration(video_duration(video)),
+      user: video.user.as_json.merge({ avatar: url_for(video.user.avatar) })
+    }
   end
 end

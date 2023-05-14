@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   namespace :api do
-    resources :videos, only: [:index]
+    resources :videos, only: %i[index show]
     get '/me', to: 'users#me'
   end
 
