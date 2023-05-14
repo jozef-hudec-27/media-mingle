@@ -19,8 +19,8 @@ $avatar-size: 36px;
   }
 
   img.avatar {
-    width: 36px;
-    height: 36px;
+    width: $avatar-size;
+    height: $avatar-size;
     aspect-ratio: 1 / 1;
   }
 
@@ -54,7 +54,7 @@ $avatar-size: 36px;
 
 .home-video-feed {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax($thumnail-width, 1fr));
   row-gap: 40px;
   column-gap: 4px;
   justify-items: center;
@@ -66,19 +66,36 @@ $avatar-size: 36px;
   width: 64vw;
 }
 
+.video-suggestions {
+  .video-preview img.thumbnail {
+    width: calc($thumnail-width * 2 / 3);
+  }
+
+  .home-video-feed {
+    grid-template-columns: repeat(auto-fit, minmax(calc($thumnail-width * 2 / 3), 1fr));
+  }
+}
+
 @media ($mq-small) {
   .home-video-feed {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 
   .video video {
-    width: 80vw;
+    width: 90vw;
+  }
+}
+
+@media ($mq-medium) {
+  .video-wrapper {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 @media ($mq-4k) {
   .home-video-feed {
-    grid-template-columns: repeat(auto-fit, minmax(720px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(calc($thumnail-width * 2), 1fr));
   }
 
   .video-preview {
