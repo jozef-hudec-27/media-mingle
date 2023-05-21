@@ -50,7 +50,13 @@ export default function Drawer({ button, links, children }) {
 
               return (
                 <div className="drawer-link px-12 pt-12 pb-12" key={i}>
-                  <Link to={link.url} onClick={link.onClick || function () {}}>
+                  <Link
+                    to={link.url}
+                    onClick={() => {
+                      closeDrawer()
+                      if (link.onClick) link.onClick()
+                    }}
+                  >
                     <div className="flexbox gap-16 flex-align-center">
                       {link.icon} {link.text}
                     </div>

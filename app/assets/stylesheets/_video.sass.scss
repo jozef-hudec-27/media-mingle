@@ -76,6 +76,33 @@ $avatar-size: 36px;
   }
 }
 
+.like-video-button-group {
+  button {
+    min-height: 36px;
+    background-color: rgb(242, 242, 242);
+
+    &:hover {
+      background-color: rgb(229, 229, 229);
+    }
+
+    &:active {
+      background-color: darken(rgb(242, 242, 242), 18%);
+    }
+  }
+}
+
+.video-author-wrapper {
+  img.avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  p {
+    color: $font-color-light;
+    font-size: 0.9em;
+  }
+}
+
 @media ($mq-small) {
   .home-video-feed {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

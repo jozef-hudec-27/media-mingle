@@ -1,0 +1,40 @@
+.button-group {
+  height: fit-content;
+  display: flex;
+
+  .button-group-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 2px;
+      height: 70%;
+      background: rgb(217, 217, 217);
+      position: absolute;
+      left: 98%;
+    }
+
+    &-first {
+      border-top-left-radius: 999px;
+      border-bottom-left-radius: 999px;
+    }
+
+    &-last {
+      border-top-right-radius: 999px;
+      border-bottom-right-radius: 999px;
+
+      &::after {
+        width: 0;
+      }
+    }
+  }
+
+  .button-group-icon {
+    margin-right: 8px;
+  }
+}
