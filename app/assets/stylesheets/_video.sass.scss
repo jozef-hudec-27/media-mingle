@@ -103,12 +103,21 @@ $avatar-size: 36px;
   }
 }
 
+.video-description {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  width: 64vw;
+  align-self: center;
+  box-sizing: border-box;
+}
+
 @media ($mq-small) {
   .home-video-feed {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 
-  .video video {
+  .video video,
+  .video-description {
     width: 90vw;
   }
 }

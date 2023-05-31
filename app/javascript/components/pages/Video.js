@@ -27,7 +27,7 @@ export default function Video() {
   return (
     <Page name="video">
       <div className="video-wrapper flexbox flex-justify-center gap-24">
-        <div className="flexbox flex-column" style={{ border: '2px solid red'}}>
+        <div className="flexbox flex-column">
           <VideoShow video={video} />
           <VideoComments video={video} />
         </div>

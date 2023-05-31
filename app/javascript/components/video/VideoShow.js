@@ -2,6 +2,7 @@ import React from 'react'
 import SubscribeBtn from '../channel/SubscribeBtn'
 import LikeBtnGroup from './LikeBtnGroup'
 import { Link } from 'react-router-dom'
+import VideoDescription from './VideoDescription'
 
 export default function VideoShow({ video }) {
   return (
@@ -31,6 +32,8 @@ export default function VideoShow({ video }) {
 
         <LikeBtnGroup video={video} />
       </div>
+
+      <VideoDescription video={video} />
     </div>
   )
 }

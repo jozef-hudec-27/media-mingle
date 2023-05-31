@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { timeElapsedSince } from '../../utils'
 
 export default function VideoPreview({ video }) {
@@ -14,13 +15,13 @@ export default function VideoPreview({ video }) {
         }
       }}
     >
-      <a className="thumbnail-wrapper" href={video.video_url}>
+      <Link to={`/videos/${video.id}`} className="thumbnail-wrapper">
         <img className="thumbnail" src={video.thumbnail_url} alt="Video thumbnail" />
 
         <div className="video-duration-box p-2">
           <p className="font-08">{video.duration}</p>
         </div>
-      </a>
+      </Link>
 
       <div className="flexbox gap-12">
         <a href="">
@@ -29,7 +30,9 @@ export default function VideoPreview({ video }) {
 
         <div className="flexbox flex-column">
           <h3 className="mb-4">
-            <a href="" ref={videoLinkRef}>{video.title}</a>
+            <Link ref={videoLinkRef} to={`/videos/${video.id}`}>
+              {video.title}
+            </Link>
           </h3>
 
           <div className="video-info">
